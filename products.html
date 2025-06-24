@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Products - Coyote Group Ltd</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #2f4f2f;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    .textured-bg {
+      background: url('./assets/background.png') center center repeat;
+      background-size: cover;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      position: relative;
+    }
+
+    .logo h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 999;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #fff;
+      margin: 4px 0;
+      transition: all 0.3s ease;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c8c8c8;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 5%;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 1rem;
+        width: 200px;
+        display: none;
+        border-radius: 6px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+    }
+
+    .products-section {
+      padding: 4rem 5%;
+    }
+
+    .products-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #FFD700;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      position: relative;
+      overflow: hidden;
+      border: 3px solid transparent;
+      border-radius: 12px;
+      transition: border-color 0.3s ease;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .product-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 1rem;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }
+
+    .product-card:hover .product-info {
+      transform: translateY(0);
+    }
+
+    .product-card:hover {
+      border-color: #FFD700;
+    }
+
+    .product-info h3 {
+      margin-bottom: 0.5rem;
+      color: #FFD700;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    footer p {
+      font-size: 0.85rem;
+      color: #dddddd;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="textured-bg">
+    <div class="logo">
+      <h1>COYOTE GROUP LTD</h1>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav>
+      <ul id="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./aboutus.html">About Us</a></li>
+        <li><a href="./products.html">Our Products</a></li>
+        <li><a href="#">Management Team</a></li>
+        <li><a href="./contactus.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="products-section textured-bg">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="./assets/CC FRONT.jpg" alt="Crown Cashewnuts">
+        <div class="product-info">
+          <h3>Crown Cashewnuts</h3>
+          <p>CGL's registered brand: roasted 100g WW180 cashews (Whole White, 180/lb). Available in retail & wholesale. Meets international standards.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="./assets/unpacked cashews.jpg" alt="Unpacked Cashew Nuts">
+        <div class="product-info">
+          <h3>Unpacked Cashew Nuts</h3>
+          <p>Supplies roasted/unroasted cashews: WW180, 240, 320, splits & broken to local & international customers.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="./assets/sesame.jpg" alt="Sesame">
+        <div class="product-info">
+          <h3>Sesame</h3>
+          <p>Top-quality Tanzanian sesame for local & export markets. Used in oil, pastries, snacks, baked goods.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="./assets/coffee.jpg" alt="Coffee">
+        <div class="product-info">
+          <h3>Coffee</h3>
+          <p>High-quality Robusta & Arabica from Kagera, Tanzania. Ethically sourced & supplied as beans/powder.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="./assets/fumigation.jpg" alt="Fumigation Services">
+        <div class="product-info">
+          <h3>Fumigation</h3>
+          <p>Methyl bromide/phosphine ISPM-15 services for nuts, grains, wood, tobacco, coffee & more at clients' premises.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="textured-bg">
+    <p>© 2025 Coyote Group Ltd. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("nav-links").classList.toggle("show");
+    }
+  </script>
+
+</body>
+</html>
