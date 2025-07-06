@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coyote Group Ltd - Our Products</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background-color: #2f4f2f;
+      color: #ffffff;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #2f4f2f;
+      z-index: -1;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+    }
+
+    .logo h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c8c8c8;
+    }
+
+    main {
+      width: 90%;
+      max-width: 1200px;
+      margin: 2rem auto;
+      text-align: center;
+    }
+
+    .hero {
+      margin-bottom: 2rem;
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      color: #FFD700;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+    }
+
+    .intro {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 5px;
+      margin-bottom: 2rem;
+    }
+
+    .intro h3 {
+      color: #FFD700;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background-color: #2f4f2f;
+    }
+
+    footer p {
+      font-size: 0.85rem;
+      color: #dddddd;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>COYOTE GROUP LTD</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./aboutus.html">About Us</a></li>
+        <li><a href="./products.html">Our Products</a></li>
+        <li><a href="#">Management Team</a></li>
+        <li><a href="./contactus.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>OUR PRODUCTS</h2>
+      <p>Experience the finest Tanzanian cashew nuts</p>
+    </section>
+
+    <section class="intro">
+      <h3>Cashew Nuts</h3>
+      <p style="margin-bottom: 20px;">We specialize in premium cashew nuts available in the following types: Raw Cashew Nuts (RCN), Semi-Processed Cashew Nuts, White Cashew Nuts, and Roasted Cashew Nuts.</p>
+      <p>Available Grades: WW 180 (20%), WW 240 (60%), and WW 320 (20%).</p>
+    </section>
+
+    <section class="product-gallery">
+      <img src="assets/CC FRONT.jpg" >
+      <img src="assets/CC REAR.jpg" >
+      <img src="assets/cc model2.jpg" >
+      <img src="assets/cc model.jpg">
+      <img src="assets/cc model3.jpg" >
+      <img src="assets/raw cc model.jpg">
+      <img src="assets/cc2.jpg" >
+      <img src="assets/raw cc.jpg">
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Coyote Group Ltd. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

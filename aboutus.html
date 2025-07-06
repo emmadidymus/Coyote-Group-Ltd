@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coyote Group Ltd - About Us</title>
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    /* BODY & GLOBAL STYLES */
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      color: #ffffff;
+      background-color: #2f4f2f;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    /* REPLACED TEXTURED BACKGROUND WITH SOLID COLOR */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #2f4f2f;
+      z-index: -1;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      position: relative;
+    }
+
+    .logo h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c8c8c8;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 999;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #fff;
+      margin: 4px 0;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      nav ul {
+        position: absolute;
+        top: 60px;
+        right: 5%;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: flex-start;
+        width: 200px;
+        padding: 1rem;
+        display: none;
+        border-radius: 5px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+    }
+
+    main {
+      flex: 1;
+      width: 90%;
+      max-width: 1200px;
+      margin: 2rem auto;
+    }
+
+    .about-us {
+      margin-bottom: 2rem;
+    }
+
+    .about-us h2 {
+      color: #FFD700;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-us p {
+      max-width: 800px;
+      line-height: 1.7;
+    }
+
+    .mission-vision {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .mission, .vision {
+      flex: 1;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1rem;
+      border-radius: 4px;
+      border: 2px solid #FFD700;
+    }
+
+    .mission h3, .vision h3 {
+      color: #FFD700;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .mission-vision {
+        flex-direction: column;
+      }
+    }
+
+    .cta-section {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 2rem;
+      border-radius: 4px;
+      border: 2px solid #FFD700;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .cta-section h2 {
+      color: #FFD700;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    .cta-section p {
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #3fa34d;
+      color: #ffffff;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+      border: 2px solid #FFD700;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #339d43;
+      border-color: #FFD700;
+    }
+
+    /* FOOTER WITH SOLID GREEN BACKGROUND */
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background-color: #2f4f2f;
+    }
+
+    footer p {
+      font-size: 0.85rem;
+      color: #dddddd;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <h1>COYOTE GROUP LTD</h1>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav>
+      <ul id="nav-links">
+        <li><a href="./homepage.html">Home</a></li>
+        <li><a href="./aboutus.html">About Us</a></li>
+        <li><a href="./products.html">Our Products</a></li>
+        <li><a href="#">Management Team</a></li>
+        <li><a href="./contactus.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <section class="about-us">
+      <h2>About Us</h2>
+      <p>
+        Our story began in 2017. Back then we were retailers of food products in Dar es Salaam City
+        as sole proprietors. We started farming with a few acres in order to satisfy the emerging
+        food market in Tanzania. Today, we are privileged to connect with thousands of customers
+        every day in our roasted and packed cashew nut, unroasted cashew nut, sesame, and coffee
+        markets. We have a range of modern cashew farms practicing organic farming methodologies.
+      </p>
+    </section>
+
+    <section class="mission-vision">
+      <div class="mission">
+        <h3>Our Mission</h3>
+        <p>
+          To produce and supply high standardized crops and cereals products which meet
+          world class standards.
+        </p>
+      </div>
+      <div class="vision">
+        <h3>Our Vision</h3>
+        <p>
+          To be among leading companies specializing in organic products and environmental
+          services in the entire agricultural value chain.
+        </p>
+      </div>
+    </section>
+    
+    <section class="cta-section">
+      <h2>Ready to Connect?</h2>
+      <p>Contact us today to discuss how we can work together for a greater and greener future.</p>
+      <a href="./contactus.html" class="cta-button">Contact Us</a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Coyote Group Ltd. All Rights Reserved.</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("nav-links");
+      nav.classList.toggle("show");
+    }
+  </script>
+</body>
+</html>

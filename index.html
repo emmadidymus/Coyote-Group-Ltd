@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coyote Group Ltd</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #2f4f2f;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+   .textured-bg {
+  background-color: #2f4f2f; /* or another green you prefer */
+}
+
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      position: relative;
+    }
+
+    header .logo h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    /* Hamburger styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      top: 1rem;
+      right: 1rem; /* Controls the spacing from the right edge */
+      z-index: 999;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #fff;
+      margin: 4px 0;
+      transition: all 0.3s ease;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c8c8c8;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 5%;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 1rem;
+        width: 200px;
+        display: none;
+        border-radius: 6px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4rem 5% 6rem;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h3 {
+      font-size: 1.25rem;
+      font-weight: normal;
+      margin-bottom: 1.5rem;
+      color: #FFD700;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background-color: #3fa34d;
+      color: #ffffff;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+      border: 2px solid transparent;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #339d43;
+      border-color: #FFD700;
+    }
+
+    .footer-text {
+      margin-top: 2rem;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: #FFD700;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    footer p {
+      font-size: 0.85rem;
+      color: #dddddd;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="textured-bg">
+    <div class="logo">
+      <h1>COYOTE GROUP LTD</h1>
+    </div>
+
+    <!-- Hamburger Menu -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav>
+      <ul id="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./aboutus.html">About Us</a></li>
+        <li><a href="./products.html">Our Products</a></li>
+        <li><a href="#">Management Team</a></li>
+        <li><a href="./contactus.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero textured-bg">
+    <h2>Our Story.</h2>
+    <h3>Organic Roots. Global Reach.</h3>
+    <p>
+      From humble beginnings in 2017 as food retailers in Dar es Salaam, we've grown into a trusted
+      supplier of high-quality agricultural products across Tanzania and beyond. Today, COYOTE GROUP
+      LIMITED (CGL) connects thousands of customers daily through our organically farmed cashew nuts,
+      sesame, and coffee—carefully harvested and processed to meet global standards.
+    </p>
+    <a href="./products.html" class="cta-btn">Explore Our Products</a>
+    <p class="footer-text">
+      Based in Ilala, Dar es Salaam — Serving the World with Tanzania's finest harvests.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="textured-bg">
+    <p>© 2025 Coyote Group Ltd. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("nav-links");
+      nav.classList.toggle("show");
+    }
+  </script>
+
+</body>
+</html>

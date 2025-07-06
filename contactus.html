@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coyote Group Ltd - Contact Us</title>
+
+  <!-- Font Awesome for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background-color: #2f4f2f;
+      color: #ffffff;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    /* Removed image background, replaced with solid green */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #2f4f2f;
+      z-index: -1;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      position: relative;
+    }
+
+    .logo h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c8c8c8;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 999;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #fff;
+      margin: 4px 0;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      nav ul {
+        position: absolute;
+        top: 60px;
+        right: 5%;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: flex-start;
+        width: 200px;
+        padding: 1rem;
+        display: none;
+        border-radius: 5px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+    }
+
+    main {
+      flex: 1;
+      width: 90%;
+      max-width: 1200px;
+      margin: 2rem auto;
+      text-align: center;
+    }
+
+    .hero {
+      margin-bottom: 2rem;
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      color: #FFD700;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-details {
+      background-color: rgba(0, 0, 0, 0.3);
+      border: 2px solid #FFD700;
+      border-radius: 4px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .contact-details h3 {
+      color: #FFD700;
+      margin-bottom: 1rem;
+    }
+
+    .contact-details p {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-details a {
+      color: #FFD700;
+      text-decoration: none;
+    }
+
+    .contact-details a:hover {
+      color: #c8c8c8;
+    }
+
+    .social-icons {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-right: 10px;
+      color: #FFD700;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #c8c8c8;
+    }
+
+    .map-placeholder {
+      border: 2px solid #FFD700;
+      border-radius: 4px;
+      overflow: hidden;
+      height: 300px;
+      margin-bottom: 2rem;
+    }
+
+    .map-placeholder iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background-color: #2f4f2f; /* Changed from image to solid green */
+    }
+
+    footer p {
+      font-size: 0.85rem;
+      color: #dddddd;
+    }
+
+    /* Responsive enhancements */
+    @media (max-width: 500px) {
+      main {
+        padding: 0 1rem;
+      }
+
+      .hero h2 {
+        font-size: 1.6rem;
+      }
+
+      .hero p,
+      .contact-details p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <h1>COYOTE GROUP LTD</h1>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <ul id="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./aboutus.html">About Us</a></li>
+        <li><a href="./products.html">Our Products</a></li>
+        <li><a href="#">Management Team</a></li>
+        <li><a href="./contactus.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <section class="hero">
+      <h2>CONTACT US</h2>
+      <p>Get in Touch With Us Today</p>
+    </section>
+
+    <section class="contact-details">
+      <h3>Contact Details</h3>
+      <p><strong>Address:</strong> House No.12, Ilala Sharifu Shamba, Shingo Feni Street, P.O.BOX 16649, Dar es Salaam</p>
+      <p><strong>Phone:</strong> +255 753 085 454, +255 768 968 956</p>
+      <p><strong>Email:</strong> <a href="mailto:coyotegroupltd@gmail.com">coyotegroupltd@gmail.com</a></p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/crowncashewnut?mibextid=ZbWKwL" target="_blank" title="Facebook">
+          <i class="fab fa-facebook-f"></i> @crowncashewnut
+        </a>
+        <a href="http://Instagram.com/crown_cashewnuts" target="_blank" title="Instagram">
+          <i class="fab fa-instagram"></i> @crown_cashewnuts
+        </a>
+        <a href="https://www.linkedin.com/company/crown-cashewnuts/" target="_blank" title="LinkedIn">
+          <i class="fab fa-linkedin-in"></i> Crown Cashewnuts
+        </a>
+        <a href="https://wa.me/255674444888" target="_blank" title="WhatsApp">
+          <i class="fab fa-whatsapp"></i> +255 674 444 888
+        </a>
+      </div>
+    </section>
+
+    <section class="map-placeholder">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253475.82429341768!2d38.99683292708571!3d-6.9430988056469225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c36368f7c3fe1%3A0xda05b0bf1d923ea4!2sIlala%2C%20Tanzania!5e0!3m2!1sen!2sin!4v1750448925242!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Coyote Group Ltd. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("nav-links");
+      nav.classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
