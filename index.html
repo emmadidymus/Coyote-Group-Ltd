@@ -18,12 +18,10 @@
       line-height: 1.6;
     }
 
-   .textured-bg {
-  background-color: #2f4f2f; /* or another green you prefer */
-}
+    .textured-bg {
+      background-color: #2f4f2f;
+    }
 
-
-    /* Header */
     header {
       display: flex;
       justify-content: space-between;
@@ -38,14 +36,13 @@
       text-transform: uppercase;
     }
 
-    /* Hamburger styles */
     .hamburger {
       display: none;
       flex-direction: column;
       cursor: pointer;
       position: absolute;
       top: 1rem;
-      right: 1rem; /* Controls the spacing from the right edge */
+      right: 1rem;
       z-index: 999;
     }
 
@@ -74,7 +71,6 @@
       color: #c8c8c8;
     }
 
-    /* Responsive Styles */
     @media (max-width: 768px) {
       .hamburger {
         display: flex;
@@ -97,7 +93,6 @@
       }
     }
 
-    /* Hero Section */
     .hero {
       padding: 4rem 5% 6rem;
     }
@@ -143,7 +138,6 @@
       color: #FFD700;
     }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 1rem 0;
@@ -152,6 +146,32 @@
     footer p {
       font-size: 0.85rem;
       color: #dddddd;
+    }
+
+    /* Floating counter style */
+    .floating-counter {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 10000;
+      background-color: #ffffff;
+      padding: 5px 8px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      opacity: 0.95;
+    }
+
+    .floating-counter a {
+      font-size: 0.7rem;
+      color: #444;
+      display: block;
+      text-align: center;
+      margin-top: 4px;
+      text-decoration: none;
+    }
+
+    .floating-counter a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -163,7 +183,6 @@
       <h1>COYOTE GROUP LTD</h1>
     </div>
 
-    <!-- Hamburger Menu -->
     <div class="hamburger" onclick="toggleMenu()">
       <span></span>
       <span></span>
@@ -201,6 +220,13 @@
   <footer class="textured-bg">
     <p>© 2025 Coyote Group Ltd. All Rights Reserved.</p>
   </footer>
+
+  <!-- Floating Visitor Counter -->
+  <div class="floating-counter">
+    <script type="text/javascript" src="https://www.freevisitorcounters.com/auth.php?id=d59048b4ce6a852520ba955b9ee6ff65060ae6b2"></script>
+    <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1365057/t/6"></script>
+    <a href="http://www.freevisitorcounters.com" target="_blank">at Freevisitorcounters.com</a>
+  </div>
 
   <!-- JavaScript -->
   <script>
