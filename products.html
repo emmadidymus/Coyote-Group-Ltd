@@ -21,12 +21,14 @@
       display: flex;
       flex-direction: column;
       font-family: Arial, sans-serif;
-      background-color: #2f4f2f;
       color: #ffffff;
       line-height: 1.6;
       position: relative;
+      background-color: #2f4f2f;
+      z-index: 1;
     }
 
+    /* BACKGROUND IMAGE + OVERLAY */
     body::before {
       content: "";
       position: fixed;
@@ -34,7 +36,20 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #2f4f2f;
+      background: url('assets/background.png') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(47, 79, 47, 0.75);
       z-index: -1;
     }
 
@@ -160,7 +175,7 @@
     footer {
       text-align: center;
       padding: 1rem 0;
-      background-color: #2f4f2f;
+      background-color: transparent;
     }
 
     footer p {
@@ -230,11 +245,6 @@
       <img src="assets/roasted cashews2.jpg" alt="Roasted Cashew">
       <img src="assets/roasted cashews3.jpg" alt="Roasted Cashew">
       <img src="assets/roasted cashews4.jpg" alt="Roasted Cashew">
-
- 
-      
-      
-
     </section>
   </main>
 
