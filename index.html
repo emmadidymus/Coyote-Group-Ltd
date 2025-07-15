@@ -11,27 +11,41 @@
       box-sizing: border-box;
     }
 
+    html, body {
+      height: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       font-family: Arial, sans-serif;
       background-color: #2f4f2f;
       color: #ffffff;
       line-height: 1.6;
+      position: relative;
+      z-index: 1;
     }
 
-    .textured-bg {
-      position: relative;
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: url('assets/background.png') no-repeat center center;
       background-size: cover;
       background-attachment: fixed;
-      z-index: 0;
+      z-index: -2;
     }
 
-    .textured-bg::before {
+    body::after {
       content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(47, 79, 47, 0.7); /* green overlay */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(47, 79, 47, 0.75);
       z-index: -1;
     }
 
@@ -92,13 +106,14 @@
       nav ul {
         flex-direction: column;
         position: absolute;
-        top: 100%;
+        top: 60px;
         right: 5%;
         background-color: rgba(0, 0, 0, 0.9);
         padding: 1rem;
         width: 200px;
         display: none;
         border-radius: 6px;
+        z-index: 999;
       }
 
       nav ul.show {
@@ -110,6 +125,7 @@
       padding: 4rem 5% 6rem;
       position: relative;
       z-index: 1;
+      text-align: left;
     }
 
     .hero h2 {
@@ -126,7 +142,7 @@
 
     .hero p {
       max-width: 700px;
-      margin-bottom: 1.5rem;
+      margin: 0 0 1.5rem 0;
     }
 
     .cta-btn {
@@ -165,7 +181,6 @@
       color: #dddddd;
     }
 
-    /* Floating counter style */
     .floating-counter {
       position: fixed;
       bottom: 20px;
@@ -195,7 +210,7 @@
 <body>
 
   <!-- Header -->
-  <header class="textured-bg">
+  <header>
     <div class="logo">
       <h1>COYOTE GROUP LTD</h1>
     </div>
@@ -212,14 +227,14 @@
         <li><a href="./aboutus.html">About Us</a></li>
         <li><a href="./products.html">Our Products</a></li>
         <li><a href="./contactus.html">Contact Us</a></li>
-        <li><a href="manangement.html">Management Team</a></li>
+        <li><a href="./management.html">Management Team</a></li>
         <li><a href="./events.html">Events</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero textured-bg">
+  <section class="hero">
     <h2>Our Story.</h2>
     <h3>Organic Roots. Global Reach.</h3>
     <p>
@@ -235,7 +250,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="textured-bg">
+  <footer>
     <p>© 2025 Coyote Group Ltd. All Rights Reserved.</p>
   </footer>
 
