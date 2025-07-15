@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coyote Group Ltd - Our Products</title>
+  <title>Coyote Group Ltd - Management Team</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     * {
@@ -147,29 +147,51 @@
       font-size: 1.1rem;
     }
 
-    .intro {
-      background-color: rgba(255, 255, 255, 0.1);
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .team-member {
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 2px solid #FFD700;
+      border-radius: 10px;
       padding: 1rem;
-      border-radius: 5px;
-      margin-bottom: 2rem;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease;
     }
 
-    .intro h3 {
-      color: #FFD700;
-      margin-bottom: 0.5rem;
+    .team-member:hover {
+      transform: translateY(-5px);
     }
 
-    .product-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .product-gallery img {
+    .team-member img {
       width: 100%;
       height: auto;
       border-radius: 8px;
       object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    .team-member h3 {
+      color: #FFD700;
+      margin-bottom: 0.3rem;
+    }
+
+    .team-member p.title {
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #cccccc;
+      margin-bottom: 0.5rem;
+    }
+
+    .team-member p.description {
+      font-size: 0.95rem;
+      color: #eeeeee;
     }
 
     footer {
@@ -192,9 +214,12 @@
         font-size: 1.6rem;
       }
 
-      .hero p,
-      .intro p {
+      .hero p {
         font-size: 1rem;
+      }
+
+      .team-member {
+        width: 100%;
       }
     }
   </style>
@@ -215,38 +240,29 @@
         <li><a href="./aboutus.html">About Us</a></li>
         <li><a href="./products.html">Our Products</a></li>
         <li><a href="./contactus.html">Contact Us</a></li>
-        <li><a href=",/management.html">Management Team</a></li>
+        <li><a href="./management.html">Management Team</a></li>
         <li><a href="./events.html">Events</a></li>
-        
       </ul>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <h2>OUR PRODUCTS</h2>
-      <p>Experience the finest Tanzanian cashew nuts</p>
+      <h2>OUR MANAGEMENT TEAM</h2>
+      <p>Meet the visionary minds leading Coyote Group Ltd</p>
     </section>
 
-    <section class="intro">
-      <h3>Cashew Nuts</h3>
-      <p style="margin-bottom: 20px;">We specialize in premium cashew nuts available in the following types: Raw Cashew Nuts (RCN), Semi-Processed Cashew Nuts, White Cashew Nuts, and Roasted Cashew Nuts.</p>
-      <p>Available Grades: WW 180 (20%), WW 240 (60%), and WW 320 (20%).</p>
-    </section>
-
-    <section class="product-gallery">
-      <img src="assets/CC FRONT.jpg" alt="Cashew Front View">
-      <img src="assets/CC REAR.jpg" alt="Cashew Rear View">
-      <img src="assets/cc model2.jpg" alt="Cashew Model 2">
-      <img src="assets/CC model.jpg" alt="Cashew Model">
-      <img src="assets/cc model3.jpg" alt="Cashew Model 3">
-      <img src="assets/raw cc model.jpg" alt="Raw Cashew Model">
-      <img src="assets/cc2.jpg" alt="Cashew Packaging 2">
-      <img src="assets/raw cc.jpg" alt="Raw Cashew">
-      <img src="assets/roasted cashews.jpg" alt="Roasted Cashew">
-      <img src="assets/roasted cashews2.jpg" alt="Roasted Cashew">
-      <img src="assets/roasted cashews3.jpg" alt="Roasted Cashew">
-      <img src="assets/roasted cashews4.jpg" alt="Roasted Cashew">
+    <section class="team-container">
+      <div class="team-member">
+        <img src="assets/CEO.jpg" alt="CEO - Coyote Group Ltd">
+        <h3>CPA. Augustus Machumi</h3>
+        <p class="title">Co-founder & CEO</p>
+        <p class="description">
+          Augustus is a dynamic entrepreneur and strategist driven by a passion for Africa's agricultural excellence.
+          He co-founded Coyote Group Ltd to connect Tanzanian produce with the global market.
+          His mission is simple: quality, integrity, and long-term partnerships.
+        </p>
+      </div>
     </section>
   </main>
 
