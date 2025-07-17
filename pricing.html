@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coyote Group Ltd - Pricing</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      color: #ffffff;
+      line-height: 1.6;
+      background-color: #2f4f2f;
+      position: relative;
+      z-index: 1;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left:  0;
+      width: 100%;
+      height: 100%;
+      background: url('assets/background.png') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left:  0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(47, 79, 47, 0.75);
+      z-index: -1;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      position: relative;
+    }
+
+    .logo h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c8c8c8;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 999;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #fff;
+      margin: 4px 0;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      nav ul {
+        position: absolute;
+        top: 60px;
+        right: 5%;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: flex-start;
+        width: 200px;
+        padding: 1rem;
+        display: none;
+        border-radius: 5px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+    }
+
+    main {
+      flex: 1;
+      width: 90%;
+      max-width: 1200px;
+      margin: 2rem auto;
+    }
+
+    .pricing-section, .exchange-rate {
+      background-color: rgba(0, 0, 0, 0.3);
+      border: 2px solid #FFD700;
+      border-radius: 4px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-section h2, .exchange-rate h2 {
+      color: #FFD700;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .currency-toggle {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .currency-toggle label {
+      color: #FFD700;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .currency-toggle select {
+      padding: 0.3rem 0.5rem;
+      border-radius: 4px;
+      border: 1px solid #FFD700;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      font-size: 0.9rem;
+    }
+
+    .currency-toggle select option {
+      background-color: #2f4f2f;
+      color: #ffffff;
+    }
+
+    .table-container {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+
+    th, td {
+      padding: 0.75rem;
+      border: 1px solid #FFD700;
+      text-align: center;
+    }
+
+    th {
+      background-color: #3fa34d;
+      color: #fff;
+    }
+
+    caption {
+      font-weight: bold;
+      color: #FFD700;
+      margin-bottom: 0.5rem;
+    }
+
+    .currency-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .rate-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+      padding: 0.75rem 1.25rem;
+      width: 100%;
+      max-width: 400px;
+      justify-content: space-between;
+    }
+
+    .rate-card img {
+      width: 32px;
+      height: 20px;
+    }
+
+    .rate-info {
+      flex-grow: 1;
+    }
+
+    .rate-info .currency {
+      font-weight: bold;
+      margin-bottom: 0.25rem;
+    }
+
+    .rate-info .rate {
+      font-size: 0.95rem;
+      color: #FFD700;
+    }
+
+    .fx-disclaimer {
+      font-size: 0.75rem;
+      font-style: italic;
+      color: #cccccc;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background-color: transparent;
+    }
+
+    footer p {
+      font-size: 0.85rem;
+      color: #dddddd;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>COYOTE GROUP LTD</h1>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <nav>
+      <ul id="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./aboutus.html">About Us</a></li>
+        <li><a href="./products.html">Our Products</a></li>
+        <li><a href="./pricing.html">Pricing</a></li>
+        <li><a href="./contactus.html">Contact Us</a></li>
+        <li><a href="./management.html">Management Team</a></li>
+        <li><a href="./events.html">Events</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="pricing-section">
+      <h2>Cashew Grades & Pricing<br><small>October 2024 - September 2025</small></h2>
+      
+      <div class="currency-toggle">
+        <label for="currency-select">Currency:</label>
+        <select id="currency-select" onchange="toggleCurrency()">
+          <option value="TZS">TZS</option>
+          <option value="USD">USD</option>
+        </select>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <caption>1. White Cashew - WW180</caption>
+          <thead><tr><th>Quarter</th><th class="price-header">Price (Tzs)/Kg <br>FOB Dar-es-Salaam Port</th></tr></thead>
+          <tbody><tr><td>October - December</td><td class="price-cell" data-tzs="16550">16,550</td></tr><tr><td>January - March</td><td class="price-cell" data-tzs="18500">18,500</td></tr><tr><td>April - June</td><td class="price-cell" data-tzs="17500">17,500</td></tr><tr><td>July - September</td><td class="price-cell" data-tzs="18000">18,000</td></tr></tbody>
+        </table>
+        <table>
+          <caption>2. White Cashew - WW240</caption>
+          <thead><tr><th>Quarter</th><th class="price-header">Price (Tzs)/Kg <br>FOB Dar-es-Salaam Port</th></tr></thead>
+          <tbody><tr><td>October - December</td><td class="price-cell" data-tzs="16550">16,550</td></tr><tr><td>January - March</td><td class="price-cell" data-tzs="18500">18,500</td></tr><tr><td>April - June</td><td class="price-cell" data-tzs="17500">17,500</td></tr><tr><td>July - September</td><td class="price-cell" data-tzs="18000">18,000</td></tr></tbody>
+        </table>
+        <table>
+          <caption>3. White Cashew - WW320</caption>
+          <thead><tr><th>Quarter</th><th class="price-header">Price (Tzs)/Kg <br>FOB Dar-es-Salaam Port</th></tr></thead>
+          <tbody><tr><td>October - December</td><td class="price-cell" data-tzs="16000">16,000</td></tr><tr><td>January - March</td><td class="price-cell" data-tzs="17500">17,500</td></tr><tr><td>April - June</td><td class="price-cell" data-tzs="17500">17,500</td></tr><tr><td>July - September</td><td class="price-cell" data-tzs="17000">17,000</td></tr></tbody>
+        </table>
+        <table>
+          <caption>4. White Cashew (Pieces) - LP, SP&BB</caption>
+          <thead><tr><th>Quarter</th><th class="price-header">Price (Tzs)/Kg <br>FOB Dar-es-Salaam Port</th></tr></thead>
+          <tbody><tr><td>October - December</td><td class="price-cell" data-tzs="8000">8,000</td></tr><tr><td>January - March</td><td class="price-cell" data-tzs="7000">7,000</td></tr><tr><td>April - June</td><td class="price-cell" data-tzs="8000">8,000</td></tr><tr><td>July - September</td><td class="price-cell" data-tzs="8000">8,000</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="exchange-rate">
+      <h2>Exchange Rate</h2>
+      <div class="currency-list" id="currency-list">
+        <div class="rate-card"><img src="https://flagcdn.com/us.svg"><div class="rate-info"><div class="currency">USD/TZS</div><div class="rate">Buying <span id="buy-USD">–</span> | Selling <span id="sell-USD">–</span></div></div></div>
+        <div class="rate-card"><img src="https://flagcdn.com/eu.svg"><div class="rate-info"><div class="currency">EUR/TZS</div><div class="rate">Buying <span id="buy-EUR">–</span> | Selling <span id="sell-EUR">–</span></div></div></div>
+        <div class="rate-card"><img src="https://flagcdn.com/cn.svg"><div class="rate-info"><div class="currency">CNY/TZS</div><div class="rate">Buying <span id="buy-CNY">–</span> | Selling <span id="sell-CNY">–</span></div></div></div>
+        <div class="rate-card"><img src="https://flagcdn.com/ae.svg"><div class="rate-info"><div class="currency">AED/TZS</div><div class="rate">Buying <span id="buy-AED">–</span> | Selling <span id="sell-AED">–</span></div></div></div>
+        <div class="rate-card"><img src="https://flagcdn.com/in.svg"><div class="rate-info"><div class="currency">INR/TZS</div><div class="rate">Buying <span id="buy-INR">–</span> | Selling <span id="sell-INR">–</span></div></div></div>
+        <div class="rate-card"><img src="https://flagcdn.com/ke.svg"><div class="rate-info"><div class="currency">KES/TZS</div><div class="rate">Buying <span id="buy-KES">–</span> | Selling <span id="sell-KES">–</span></div></div></div>
+      </div>
+      <p class="fx-disclaimer">
+        *Disclaimer: The exchange rates displayed are approximate and for informational purposes only. Please consult your bank or official forex bureau for current and accurate rates.
+      </p>
+    </section>
+  </main>
+
+  <footer><p>© 2025 Coyote Group Ltd. All Rights Reserved.</p></footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("nav-links").classList.toggle("show");
+    }
+
+    let currentUsdRate = 0;
+    const currencies = ["USD", "EUR", "CNY", "AED", "INR", "KES"];
+    
+    fetch("https://v6.exchangerate-api.com/v6/b8b4a68ed773de4b9f84a13c/latest/USD")
+      .then(res => res.json())
+      .then(data => {
+        const rates = data.conversion_rates;
+        const usdToTzs = rates.TZS;
+        currentUsdRate = usdToTzs;
+        
+        currencies.forEach(code => {
+          const toUsd = rates[code];
+          const rate = usdToTzs * (1 / toUsd);
+          const buying = Math.floor(rate * 0.965);
+          const selling = Math.ceil(rate * 1.035);
+          document.getElementById("buy-" + code).innerText = buying.toLocaleString();
+          document.getElementById("sell-" + code).innerText = selling.toLocaleString();
+        });
+      })
+      .catch(err => {
+        currencies.forEach(code => {
+          document.getElementById("buy-" + code).innerText = "Unavailable";
+          document.getElementById("sell-" + code).innerText = "Unavailable";
+        });
+      });
+
+    function toggleCurrency() {
+      const selectedCurrency = document.getElementById("currency-select").value;
+      const priceHeaders = document.querySelectorAll(".price-header");
+      const priceCells = document.querySelectorAll(".price-cell");
+
+      if (selectedCurrency === "USD") {
+        // Update headers
+        priceHeaders.forEach(header => {
+          header.innerHTML = "Price (USD)/Kg <br>FOB Dar-es-Salaam Port";
+        });
+
+        // Update price cells
+        priceCells.forEach(cell => {
+          const tzsPrice = parseFloat(cell.getAttribute("data-tzs"));
+          if (currentUsdRate > 0) {
+            const usdPrice = (tzsPrice / currentUsdRate).toFixed(2);
+            cell.textContent = usdPrice;
+          } else {
+            cell.textContent = "Rate unavailable";
+          }
+        });
+      } else {
+        // Update headers
+        priceHeaders.forEach(header => {
+          header.innerHTML = "Price (Tzs)/Kg <br>FOB Dar-es-Salaam Port";
+        });
+
+        // Update price cells
+        priceCells.forEach(cell => {
+          const tzsPrice = parseFloat(cell.getAttribute("data-tzs"));
+          cell.textContent = tzsPrice.toLocaleString();
+        });
+      }
+    }
+  </script>
+</body>
+</html>
