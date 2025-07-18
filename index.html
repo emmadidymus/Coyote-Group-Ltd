@@ -114,6 +114,7 @@
         display: none;
         border-radius: 6px;
         z-index: 999;
+        transition: all 0.3s ease-in-out;
       }
 
       nav ul.show {
@@ -227,9 +228,9 @@
         <li><a href="./aboutus.html">About Us</a></li>
         <li><a href="./products.html">Our Products</a></li>
         <li><a href="./pricing.html">Pricing</a></li>
-        <li><a href="./contactus.html">Contact Us</a></li>
         <li><a href="./management.html">Management Team</a></li>
         <li><a href="./events.html">Events</a></li>
+        <li><a href="./contactus.html">Contact Us</a></li>
       </ul>
     </nav>
   </header>
@@ -268,6 +269,16 @@
       const nav = document.getElementById("nav-links");
       nav.classList.toggle("show");
     }
+
+    // ✅ Collapse menu on link click (mobile only)
+    document.querySelectorAll("#nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        const nav = document.getElementById("nav-links");
+        if (nav.classList.contains("show")) {
+          nav.classList.remove("show");
+        }
+      });
+    });
   </script>
 
 </body>
