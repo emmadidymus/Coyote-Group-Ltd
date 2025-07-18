@@ -28,7 +28,6 @@
       z-index: 1;
     }
 
-    /* BACKGROUND IMAGE + OVERLAY */
     body::before {
       content: "";
       position: fixed;
@@ -215,10 +214,9 @@
         <li><a href="./aboutus.html">About Us</a></li>
         <li><a href="./products.html">Our Products</a></li>
         <li><a href="./pricing.html">Pricing</a></li>
-        <li><a href="./contactus.html">Contact Us</a></li>
         <li><a href="./management.html">Management Team</a></li>
         <li><a href="./events.html">Events</a></li>
-        
+        <li><a href="./contactus.html">Contact Us</a></li>
       </ul>
     </nav>
   </header>
@@ -260,6 +258,16 @@
       const nav = document.getElementById("nav-links");
       nav.classList.toggle("show");
     }
+
+    // Auto-collapse mobile nav on link click
+    document.querySelectorAll("#nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        const nav = document.getElementById("nav-links");
+        if (nav.classList.contains("show")) {
+          nav.classList.remove("show");
+        }
+      });
+    });
   </script>
 </body>
 </html>
